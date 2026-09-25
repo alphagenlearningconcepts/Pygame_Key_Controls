@@ -1,4 +1,4 @@
-<!DOCTYPE html
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -282,7 +282,7 @@
                     <i class="fa-solid fa-gamepad"></i>
                 </div>
                 <div>
-                    <h1 class="font-extrabold text-sm md:text-base text-alphagen-nearBlack tracking-tight">Introduction to Coding</h1>
+                    <h1 class="font-extrabold text-sm md:text-base text-alphagen-nearBlack tracking-tight">Pygame Key Events</h1>
                     <p class="text-[11px] font-semibold text-alphagen-purple">Pygame Key Events</p>
                 </div>
             </div>
@@ -341,8 +341,8 @@
                     <span class="text-xs uppercase font-extrabold tracking-wider text-alphagen-purple bg-alphagen-purpleGhost px-3 py-1 rounded-md border border-alphagen-purplePale">Real-World Analogy</span>
                     <span class="text-xs font-bold text-alphagen-midGrey"></span>
                 </div>
-                <h2 class="text-2xl md:text-3xl font-bold text-alphagen-nearBlack mb-1">Holding Down a Piano Key</h2>
-                <p class="text-xs md:text-sm text-alphagen-darkGrey mb-2">Notice the difference between a single key tap and holding a key:</p>
+                <h2 class="text-2xl md:text-3xl font-bold text-alphagen-nearBlack mb-1">Holding Down a Piano Key </h2>
+                <p class="text-xs md:text-sm text-alphagen-darkGrey mb-2">Notice the difference between a single key tap and holding a key continuously:</p>
             </div>
 
             <div class="grid grid-cols-2 gap-6 items-center my-auto">
@@ -353,40 +353,40 @@
                     </div>
                     <div class="text-7xl my-2">🎹</div>
                     <p class="text-xs md:text-sm text-alphagen-darkGrey leading-relaxed">
-                        Tapping a key produces a <strong>single quick pulse sound</strong>.
+                        Tapping a key produces a <strong>single quick pulse sound</strong>. In Pygame, this is like catching a single keydown event once!
                     </p>
                     
                     <button onclick="playPianoPulse()" class="btn-interactive w-full bg-alphagen-purple hover:bg-alphagen-purpleDark text-white font-bold py-3 rounded-xl text-xs md:text-sm shadow-md">
-                        Tap Piano Key 
+                        Tap Piano Key (Single Quick Pulse)
                     </button>
                     
                     <div id="piano-tap-status" class="text-xs font-mono font-bold text-alphagen-midGrey">
-                 
+                        Status: Idle
                     </div>
                 </div>
 
                 <!-- Piano 2: Hold Sustained Mode -->
                 <div class="bg-alphagen-purpleGhost border-2 border-alphagen-purplePale rounded-2xl p-6 text-center flex flex-col items-center justify-between h-full space-y-4">
                     <div class="bg-alphagen-yellow text-alphagen-nearBlack px-3.5 py-1.5 rounded-lg font-bold text-xs md:text-sm">
-                        PIANO #2: HOLD THE KEY
+                        PIANO #2: HOLD STATE (get_pressed)
                     </div>
                     <div class="text-7xl my-2">🎶</div>
                     <p class="text-xs md:text-sm text-alphagen-darkGrey leading-relaxed">
-                        Holding down a key sustains a <strong>continuous sound</strong> as long as held! <code class="font-mono text-alphagen-purple font-semibold">
+                        Holding down a key sustains a <strong>continuous sound</strong> as long as held! <code class="font-mono text-alphagen-purple font-semibold">get_pressed()</code> checks this state 60 times a second.
                     </p>
                     
                     <button id="piano-hold-btn" onmousedown="startPianoHold()" onmouseup="stopPianoHold()" onmouseleave="stopPianoHold()" ontouchstart="startPianoHold()" ontouchend="stopPianoHold()" class="btn-interactive w-full bg-alphagen-yellow hover:bg-alphagen-yellowDark text-alphagen-nearBlack font-bold py-3 rounded-xl text-xs md:text-sm shadow-md">
-                        Press & Hold Piano Key 
+                        Press & Hold Piano Key (Continuous Note)
                     </button>
 
                     <div id="piano-hold-status" class="text-xs font-mono font-bold text-alphagen-midGrey">
-                      
+                        Status: Released (False)
                     </div>
                 </div>
             </div>
 
             <div class="bg-emerald-50 border border-emerald-300 p-3 rounded-2xl text-xs md:text-sm text-emerald-950 font-bold text-center">
-             
+                💡 Key Takeaway: Holding down a movement key in Pygame keeps player sprites gliding smoothly frame-by-frame!
             </div>
         </div>
 
@@ -395,10 +395,10 @@
             <div>
                 <div class="flex items-center justify-between mb-1">
                     <span class="text-xs uppercase font-extrabold tracking-wider text-alphagen-purple bg-alphagen-purpleGhost px-3 py-1 rounded-md border border-alphagen-purplePale">Interactive Simulator</span>
-                    <span class="text-xs font-bold text-alphagen-midGrey">Observe the state</span>
+                    <span class="text-xs font-bold text-alphagen-midGrey"></span>
                 </div>
-                <h2 class="text-2xl md:text-3xl font-bold text-alphagen-nearBlack mb-1">Visualise Key Press</h2>
-                <p class="text-xs md:text-sm text-alphagen-darkGrey mb-2">Hold down Left or Right arrow buttons (or physical keyboard keys) and observe the state value change!</p>
+                <h2 class="text-2xl md:text-3xl font-bold text-alphagen-nearBlack mb-1">Press & Hold State Visualizer </h2>
+                <p class="text-xs md:text-sm text-alphagen-darkGrey mb-2">Hold down 'A' or 'D' buttons (or physical keyboard 'A' / 'D' keys) and observe the state value change!</p>
             </div>
 
             <div class="my-auto space-y-4">
@@ -411,11 +411,11 @@
                     <!-- Live State Monitor Overlay -->
                     <div class="absolute top-3 left-4 bg-slate-900/90 border border-slate-700 text-xs md:text-sm font-mono p-3.5 rounded-xl space-y-1.5 shadow-lg">
                         <div class="flex items-center gap-3">
-                            <span class="text-slate-300">keys[pygame.K_LEFT]:</span>
+                            <span class="text-slate-300">keys[pygame.K_a]:</span>
                             <span id="state-left-val" class="font-bold text-slate-500">False</span>
                         </div>
                         <div class="flex items-center gap-3">
-                            <span class="text-slate-300">keys[pygame.K_RIGHT]:</span>
+                            <span class="text-slate-300">keys[pygame.K_d]:</span>
                             <span id="state-right-val" class="font-bold text-slate-500">False</span>
                         </div>
                     </div>
@@ -424,13 +424,13 @@
                 <!-- On-Screen Hold Buttons -->
                 <div class="flex justify-center gap-6">
                     <button onmousedown="startSimMove('left')" onmouseup="stopSimMove()" onmouseleave="stopSimMove()" ontouchstart="startSimMove('left')" ontouchend="stopSimMove()" class="btn-interactive bg-alphagen-purple hover:bg-alphagen-purpleDark text-white px-8 py-3.5 rounded-xl font-bold text-xs md:text-sm shadow-md flex items-center gap-3">
-                        <i class="fa-solid fa-arrow-left"></i>
-                        <span>HOLD LEFT ARROW</span>
+                        <span class="keycap px-2 py-0.5 text-xs mr-1 text-alphagen-nearBlack">A</span>
+                        <span>HOLD 'A' KEY (LEFT)</span>
                     </button>
                     
                     <button onmousedown="startSimMove('right')" onmouseup="stopSimMove()" onmouseleave="stopSimMove()" ontouchstart="startSimMove('right')" ontouchend="stopSimMove()" class="btn-interactive bg-alphagen-purple hover:bg-alphagen-purpleDark text-white px-8 py-3.5 rounded-xl font-bold text-xs md:text-sm shadow-md flex items-center gap-3">
-                        <span>HOLD RIGHT ARROW</span>
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <span>HOLD 'D' KEY (RIGHT)</span>
+                        <span class="keycap px-2 py-0.5 text-xs ml-1 text-alphagen-nearBlack">D</span>
                     </button>
                 </div>
             </div>
@@ -492,7 +492,7 @@
                             <h3 class="font-extrabold text-alphagen-nearBlack text-base">3. Handle Action</h3>
                         </div>
                         <p class="text-xs md:text-sm text-alphagen-darkGrey leading-relaxed">
-                           Perform the action inside the <code class="font-mono text-alphagen-purple font-semibold">if</code> block!
+                            Execute the event inside <code class="font-mono text-alphagen-purple font-semibold">if</code> block!
                         </p>
                     </div>
                     <div class="w-1/3 font-mono bg-alphagen-nearBlack text-emerald-400 p-3 rounded-xl text-xs md:text-sm border border-slate-800 text-center font-bold shadow-md">
@@ -502,7 +502,7 @@
             </div>
 
             <div class="bg-alphagen-yellowPale border border-alphagen-yellowDark/40 p-3 rounded-2xl text-xs md:text-sm text-alphagen-nearBlack font-semibold text-center">
-               
+                
             </div>
         </div>
 
@@ -513,8 +513,8 @@
                     <span class="text-xs uppercase font-extrabold tracking-wider text-alphagen-purple bg-alphagen-purpleGhost px-3 py-1 rounded-md border border-alphagen-purplePale">Key Dictionary</span>
                     <span class="text-xs font-bold text-alphagen-midGrey"></span>
                 </div>
-                <h2 class="text-2xl md:text-3xl font-bold text-alphagen-nearBlack mb-1">Pygame Key List </h2>
-                <p class="text-xs md:text-sm text-alphagen-darkGrey mb-2">Click any key block below to discover its exact Pygame name:</p>
+                <h2 class="text-2xl md:text-3xl font-bold text-alphagen-nearBlack mb-1">Every Key Has a Special Name! </h2>
+                <p class="text-xs md:text-sm text-alphagen-darkGrey mb-2">Click any key block below to discover its exact Pygame constant name:</p>
             </div>
 
             <div class="grid grid-cols-2 gap-6 items-center my-auto">
@@ -578,8 +578,8 @@
                     <span class="text-xs uppercase font-extrabold tracking-wider text-alphagen-purple bg-alphagen-purpleGhost px-3 py-1 rounded-md border border-alphagen-purplePale">Coordinate Space</span>
                     <span class="text-xs font-bold text-alphagen-midGrey"></span>
                 </div>
-                <h2 class="text-2xl md:text-3xl font-bold text-alphagen-nearBlack mb-1">Arrow Movement & (X, Y) Coordinates </h2>
-                <p class="text-xs md:text-sm text-alphagen-darkGrey mb-2">Use the arrow buttons to move the spaceship across full screen bounds:</p>
+                <h2 class="text-2xl md:text-3xl font-bold text-alphagen-nearBlack mb-1">WASD Movement & (X, Y) Coordinates </h2>
+                <p class="text-xs md:text-sm text-alphagen-darkGrey mb-2">Use W, A, S, D keys (or on-screen buttons) to move the spaceship across full screen bounds:</p>
             </div>
 
             <div class="my-auto space-y-4">
@@ -606,24 +606,24 @@
                 <!-- D-Pad Directional Controls -->
                 <div class="flex flex-col items-center space-y-1.5">
                     <button onclick="moveCoord(0, -15)" class="btn-interactive bg-alphagen-purple text-white px-6 py-2 rounded-xl font-bold text-xs md:text-sm shadow-md">
-                        ▲ UP (Y - 15)
+                        ▲ W (Y - 15)
                     </button>
                     <div class="flex space-x-3">
                         <button onclick="moveCoord(-15, 0)" class="btn-interactive bg-alphagen-purple text-white px-6 py-2 rounded-xl font-bold text-xs md:text-sm shadow-md">
-                            ◀ LEFT (X - 15)
+                            ◀ A (X - 15)
                         </button>
                         <button onclick="moveCoord(0, 15)" class="btn-interactive bg-alphagen-purple text-white px-6 py-2 rounded-xl font-bold text-xs md:text-sm shadow-md">
-                            ▼ DOWN (Y + 15)
+                            ▼ S (Y + 15)
                         </button>
                         <button onclick="moveCoord(15, 0)" class="btn-interactive bg-alphagen-purple text-white px-6 py-2 rounded-xl font-bold text-xs md:text-sm shadow-md">
-                            ▶ RIGHT (X + 15)
+                            ▶ D (X + 15)
                         </button>
                     </div>
                 </div>
             </div>
 
             <div class="bg-alphagen-cyanPale border-l-4 border-alphagen-cyanDark p-3 rounded-r-xl text-xs md:text-sm text-alphagen-cyanDark font-semibold">
-                💡 Coordinate Rule: In Pygame, moving <strong>RIGHT</strong> increases X (<code class="bg-white px-1 rounded">+X</code>), and moving <strong>DOWN</strong> increases Y (<code class="bg-white px-1 rounded">+Y</code>)!
+                💡 Coordinate Rule: In Pygame, moving <strong>RIGHT (D)</strong> increases X (<code class="bg-white px-1 rounded">+X</code>), and moving <strong>DOWN (S)</strong> increases Y (<code class="bg-white px-1 rounded">+Y</code>)!
             </div>
         </div>
 
@@ -632,9 +632,9 @@
             <div>
                 <div class="flex items-center justify-between mb-1">
                     <span class="text-xs uppercase font-extrabold tracking-wider text-alphagen-purple bg-alphagen-purpleGhost px-3 py-1 rounded-md border border-alphagen-purplePale">Interactive Syntax Quiz</span>
-                    <span class="text-xs font-bold text-alphagen-nearBlack bg-alphagen-yellow px-2.5 py-0.5 rounded-md">Spot the Syntax!</span>
+                    <span class="text-xs font-bold text-alphagen-nearBlack bg-alphagen-yellow px-2.5 py-0.5 rounded-md"></span>
                 </div>
-                <h2 class="text-2xl md:text-3xl font-bold text-alphagen-nearBlack mb-1">Guess the Correct Syntax</h2>
+                <h2 class="text-2xl md:text-3xl font-bold text-alphagen-nearBlack mb-1">Guess: Correct vs Wrong Syntax</h2>
                 <p class="text-xs md:text-sm text-alphagen-darkGrey mb-2">Look at the two code snippets below and click which one has <strong>CORRECT SYNTAX</strong>!</p>
             </div>
 
@@ -643,7 +643,7 @@
                 <div onclick="guessSyntaxChoice('A')" id="syntax-card-A" class="btn-interactive bg-alphagen-purpleGhost border-2 border-alphagen-purplePale hover:border-alphagen-purple p-6 rounded-2xl flex flex-col justify-between h-full space-y-4">
                     <div class="flex items-center justify-between">
                         <span class="bg-alphagen-purple text-white px-3 py-1 rounded-lg font-bold text-xs md:text-sm">SNIPPET A</span>
-                        <span id="badge-A" class="text-xs font-bold text-alphagen-midGrey">Click to Guess</span>
+                        <span id="badge-A" class="text-xs font-bold text-alphagen-midGrey"></span>
                     </div>
 
                     <div class="font-mono bg-alphagen-nearBlack text-slate-100 p-4 rounded-xl text-xs md:text-sm leading-relaxed border border-slate-800 shadow-md">
@@ -653,7 +653,7 @@
                     </div>
 
                     <p class="text-xs md:text-sm font-semibold text-alphagen-darkGrey text-center">
-                        Does Snippet A have valid Pygame syntax?
+                      
                     </p>
                 </div>
 
@@ -661,7 +661,7 @@
                 <div onclick="guessSyntaxChoice('B')" id="syntax-card-B" class="btn-interactive bg-alphagen-purpleGhost border-2 border-alphagen-purplePale hover:border-alphagen-purple p-6 rounded-2xl flex flex-col justify-between h-full space-y-4">
                     <div class="flex items-center justify-between">
                         <span class="bg-alphagen-purple text-white px-3 py-1 rounded-lg font-bold text-xs md:text-sm">SNIPPET B</span>
-                        <span id="badge-B" class="text-xs font-bold text-alphagen-midGrey">Click to Guess</span>
+                        <span id="badge-B" class="text-xs font-bold text-alphagen-midGrey"></span>
                     </div>
 
                     <div class="font-mono bg-alphagen-nearBlack text-slate-100 p-4 rounded-xl text-xs md:text-sm leading-relaxed border border-slate-800 shadow-md">
@@ -671,7 +671,7 @@
                     </div>
 
                     <p class="text-xs md:text-sm font-semibold text-alphagen-darkGrey text-center">
-                        Does Snippet B have valid Pygame syntax?
+                       
                     </p>
                 </div>
             </div>
@@ -686,9 +686,9 @@
             <div>
                 <div class="flex items-center justify-between mb-1">
                     <span class="text-xs uppercase font-extrabold tracking-wider text-alphagen-purple bg-alphagen-purpleGhost px-3 py-1 rounded-md border border-alphagen-purplePale">Knowledge Check</span>
-                    <span class="text-xs font-bold text-alphagen-nearBlack bg-alphagen-yellow px-2.5 py-0.5 rounded-md">Detective Challenge</span>
+                  
                 </div>
-                <h2 class="text-2xl md:text-3xl font-bold text-alphagen-nearBlack mb-1">Check The Syntax</h2>
+                <h2 class="text-2xl md:text-3xl font-bold text-alphagen-nearBlack mb-1"></h2>
                 <p class="text-xs md:text-sm text-alphagen-darkGrey mb-2">Select ONLY the 2 correctly formatted Pygame key checks below:</p>
             </div>
 
@@ -724,10 +724,10 @@
             <div>
                 <div class="flex items-center justify-between mb-1">
                     <span class="text-xs uppercase font-extrabold tracking-wider text-alphagen-purple bg-alphagen-purpleGhost px-3 py-1 rounded-md border border-alphagen-purplePale">Code Assembly</span>
-                    <span class="text-xs font-bold text-alphagen-midGrey">Move Character Left</span>
+                    <span class="text-xs font-bold text-alphagen-midGrey"></span>
                 </div>
                 <h2 class="text-2xl md:text-3xl font-bold text-alphagen-nearBlack mb-1">Assemble Code to Move LEFT!</h2>
-                <p class="text-xs md:text-sm text-alphagen-darkGrey mb-2">Select correct blocks in proper order out of the jumbled blocks to move the sprite left:</p>
+                <p class="text-xs md:text-sm text-alphagen-darkGrey mb-2">Select the correct blocks in proper order out of the listed blocks to move the sprite left:</p>
             </div>
 
             <div class="grid grid-cols-2 gap-6 items-stretch my-auto">
@@ -743,7 +743,7 @@
                 <!-- Right: Assembly Slots & Live Simulator -->
                 <div class="bg-alphagen-nearBlack border-2 border-slate-800 rounded-2xl p-4 text-white flex flex-col justify-between">
                     <div>
-                        <span class="text-xs font-mono text-alphagen-cyan font-bold uppercase mb-2 block">Your Assembled Code :</span>
+                        <span class="text-xs font-mono text-alphagen-cyan font-bold uppercase mb-2 block">Your Assembled Code Slots:</span>
                         
                         <div id="assembly-slots" class="space-y-2 mb-3">
                             <div class="p-2.5 border border-dashed border-slate-700 rounded-xl text-xs md:text-sm font-mono text-slate-500">1. Click block 1...</div>
@@ -757,7 +757,7 @@
                         <div id="sequencer-sprite" class="absolute text-5xl select-none transition-all duration-300" style="left: 70%;">
                             🏎️
                         </div>
-                        <span id="sequencer-sim-status" class="absolute bottom-1 text-xs font-mono text-slate-400"></span>
+                        <span id="sequencer-sim-status" class="absolute bottom-1 text-xs font-mono text-slate-400">Assemble code & test!</span>
                     </div>
 
                     <button onclick="testAssembledCode()" id="test-assembly-btn" class="btn-interactive w-full bg-alphagen-yellow hover:bg-alphagen-yellowDark text-alphagen-nearBlack font-bold py-2.5 rounded-xl text-xs md:text-sm mt-2 shadow-md">
@@ -767,7 +767,7 @@
             </div>
 
             <div id="assembly-feedback" class="bg-alphagen-purpleGhost border-2 border-dashed border-alphagen-purple p-3 rounded-2xl text-xs md:text-sm text-alphagen-purple font-bold text-center">
-           
+                Select 3 correct blocks in order to test left movement!
             </div>
         </div>
 
@@ -778,7 +778,7 @@
                     <span class="text-xs uppercase font-extrabold tracking-wider text-alphagen-purple bg-alphagen-purpleGhost px-3 py-1 rounded-md border border-alphagen-purplePale">Practice Lab</span>
                     <span class="text-xs font-bold text-alphagen-nearBlack bg-alphagen-yellow px-2.5 py-0.5 rounded-md"></span>
                 </div>
-                <h2 class="text-2xl md:text-3xl font-bold text-alphagen-nearBlack mb-1">Coding Challenge</h2>
+                <h2 class="text-2xl md:text-3xl font-bold text-alphagen-nearBlack mb-1">Coding Challenge </h2>
                 <p class="text-xs md:text-sm text-alphagen-darkGrey mb-3">Open your Pygame editor and complete these steps in your own game code:</p>
             </div>
 
@@ -802,14 +802,14 @@
                 <div class="checkbox-card" id="task-ide-3" onclick="toggleTaskCard('task-ide-3')">
                     <div class="checkbox-box"><i class="fa-solid fa-check"></i></div>
                     <div>
-                        <h3 class="font-bold text-alphagen-nearBlack text-sm md:text-base">3. Observe Character Movement </h3>
+                        <h3 class="font-bold text-alphagen-nearBlack text-sm md:text-base">3. Observe Character Movement ⭐</h3>
                         <p class="text-xs md:text-sm text-alphagen-darkGrey mt-0.5">Run your Pygame code, press your keys of choice, and observe continuous character movement!</p>
                     </div>
                 </div>
             </div>
 
             <div class="bg-alphagen-purpleGhost border-2 border-dashed border-alphagen-purple p-3.5 rounded-2xl text-xs md:text-sm text-alphagen-purple font-bold text-center">
-                Check off all 3 steps as you test your code in your Pygame editor
+                Check off all 3 steps as you test your code in your Pygame editor!
             </div>
         </div>
 
@@ -1197,24 +1197,33 @@
 
         /* Keyboard Listener */
         document.addEventListener('keydown', (e) => {
+            // Ignore keystrokes when typing in input/select fields
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') {
+                return;
+            }
+
+            // Page navigation via Left & Right Arrow keys + Space
             if (e.key === 'ArrowRight' || e.key === 'Space') nextSlide();
             if (e.key === 'ArrowLeft') prevSlide();
 
+            // Slide 3: Press & hold simulator with A and D keys
             if (currentSlide === 3) {
-                if (e.key === 'ArrowLeft') startSimMove('left');
-                if (e.key === 'ArrowRight') startSimMove('right');
+                if (e.key === 'a' || e.key === 'A') startSimMove('left');
+                if (e.key === 'd' || e.key === 'D') startSimMove('right');
             }
+
+            // Slide 6: Coordinate movement with W, A, S, D keys
             if (currentSlide === 6) {
-                if (e.key === 'ArrowUp') moveCoord(0, -15);
-                if (e.key === 'ArrowDown') moveCoord(0, 15);
-                if (e.key === 'ArrowLeft') moveCoord(-15, 0);
-                if (e.key === 'ArrowRight') moveCoord(15, 0);
+                if (e.key === 'w' || e.key === 'W') moveCoord(0, -15);
+                if (e.key === 's' || e.key === 'S') moveCoord(0, 15);
+                if (e.key === 'a' || e.key === 'A') moveCoord(-15, 0);
+                if (e.key === 'd' || e.key === 'D') moveCoord(15, 0);
             }
         });
 
         document.addEventListener('keyup', (e) => {
             if (currentSlide === 3) {
-                if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') stopSimMove();
+                if (e.key === 'a' || e.key === 'A' || e.key === 'd' || e.key === 'D') stopSimMove();
             }
         });
 
